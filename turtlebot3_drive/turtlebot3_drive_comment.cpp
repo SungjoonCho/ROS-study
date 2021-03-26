@@ -19,6 +19,9 @@
 
 /* Authors: Taehun Lim (Darby) */
 
+// turtlebot 센서가 받은 데이터를 turtlebot3_drive.cpp가 subscribe
+// cpp는 봇이 어디로 가야하는지 계산해서 봇한테 다시 publish
+
 #include "turtlebot3_gazebo/turtlebot3_drive.h"
 #include <iostream>
 
@@ -75,7 +78,7 @@ void Turtlebot3Drive::odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg)
   double siny = 2.0 * (msg->pose.pose.orientation.w * msg->pose.pose.orientation.z + msg->pose.pose.orientation.x * msg->pose.pose.orientation.y);
   double cosy = 1.0 - 2.0 * (msg->pose.pose.orientation.y * msg->pose.pose.orientation.y + msg->pose.pose.orientation.z * msg->pose.pose.orientation.z);  
 
-  tb3_pose_ = atan2(siny, cosy); // 각도 구해서 저장
+  tb3_pose_ = atan2(siny, cosy); // turtlebot의 각도 구해서 저장, atan2는 파라미터로 음수 허용, -pi~pi 라디안 값 리턴
 }
 
 void Turtlebot3Drive::laserScanMsgCallBack(const sensor_msgs::LaserScan::ConstPtr &msg)
@@ -156,7 +159,7 @@ bool Turtlebot3Drive::controlLoop()
       }
       break;
 
-	 // 속도 업데이트
+	 // 속도, 각도 업데이트
     case TB3_DRIVE_FORWARD:
       updatecommandVelocity(LINEAR_VELOCITY, 0.0);
       turtlebot3_state_num = GET_TB3_DIRECTION;
