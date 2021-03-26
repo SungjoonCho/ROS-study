@@ -3,6 +3,7 @@ Ros gazebo 세팅
 launch 파일이 있는 경우!
 환경 모델 불러오기 + 시뮬레이션
 
+0) bashrc 파일에 export TURTLEBOT3_MODEL=waffle 입력 후 저장
 
 1) 패키지 및 노드 모두 준비
 2) cmd1 - $ roscore
