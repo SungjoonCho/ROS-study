@@ -105,7 +105,7 @@ void Turtlebot3Drive::updatecommandVelocity(double linear, double angular)
   cmd_vel.linear.x  = linear;
   cmd_vel.angular.z = angular;
 
- // 업데이트
+ // 업데이트한 내역 publish
   cmd_vel_pub_.publish(cmd_vel);
 }
 
