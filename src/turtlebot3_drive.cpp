@@ -1,3 +1,6 @@
+// turtlebot3_drive.cpp 코드 공부
+// 코드 출처 : https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/master/turtlebot3_gazebo/src
+
 /*******************************************************************************
 * Copyright 2016 ROBOTIS CO., LTD.
 *
@@ -43,6 +46,7 @@ Turtlebot3Drive::~Turtlebot3Drive()
 bool Turtlebot3Drive::init()
 {
   // initialize ROS parameter
+// “cmd_vel_topic_name” param으로 받아온 값 저장 ( cmd_vel_topic_name = “cmd_vel” 
   std::string cmd_vel_topic_name = nh_.param<std::string>("cmd_vel_topic_name", "");  //cmd_vel
 
   // initialize variables
@@ -53,11 +57,14 @@ bool Turtlebot3Drive::init()
   tb3_pose_ = 0.0;
   prev_tb3_pose_ = 0.0;
 
-  // initialize publishers
+  // initialize publishers - “cmd_vel"으로 publisher 생성
   cmd_vel_pub_   = nh_.advertise<geometry_msgs::Twist>(cmd_vel_topic_name, 10);
 
   // initialize subscribers
+// topic “scan”으로 받아온 msg 저장 + callback 함수 호출 	
   laser_scan_sub_  = nh_.subscribe("scan", 10, &Turtlebot3Drive::laserScanMsgCallBack, this);
+		
+// topic “odom”으로 받아온 msg 저장 + callback함수 호출
   odom_sub_ = nh_.subscribe("odom", 10, &Turtlebot3Drive::odomMsgCallBack, this);
 
   return true;
@@ -66,22 +73,25 @@ bool Turtlebot3Drive::init()
 void Turtlebot3Drive::odomMsgCallBack(const nav_msgs::Odometry::ConstPtr &msg)
 {
   double siny = 2.0 * (msg->pose.pose.orientation.w * msg->pose.pose.orientation.z + msg->pose.pose.orientation.x * msg->pose.pose.orientation.y);
-	double cosy = 1.0 - 2.0 * (msg->pose.pose.orientation.y * msg->pose.pose.orientation.y + msg->pose.pose.orientation.z * msg->pose.pose.orientation.z);  
+  double cosy = 1.0 - 2.0 * (msg->pose.pose.orientation.y * msg->pose.pose.orientation.y + msg->pose.pose.orientation.z * msg->pose.pose.orientation.z);  
 
-	tb3_pose_ = atan2(siny, cosy);
+  tb3_pose_ = atan2(siny, cosy); // 각도 구해서 저장
 }
 
 void Turtlebot3Drive::laserScanMsgCallBack(const sensor_msgs::LaserScan::ConstPtr &msg)
 {
+// scan_angle의 0 , 30, 330 ⇒ 정면, 왼쪽, 오른쪽 각도 의미
   uint16_t scan_angle[3] = {0, 30, 330};
 
   for (int num = 0; num < 3; num++)
   {
-    if (std::isinf(msg->ranges.at(scan_angle[num])))
+// msg -> ranges( ) ⇒  sensor_msgs::LaserScan::ranges - 특정 각도에서 측정된 거리를 msg 데이터에서 읽어옴
+// isinf ⇒ 해당 데이터가 무한대인지 판단, 무한대가 아니면 0, 무한대면 0이 아닌 값 리턴
+    if (std::isinf(msg->ranges.at(scan_angle[num]))) // 거리가 무한대일 경우에는 최댓값(limit) 저장
     {
       scan_data_[num] = msg->range_max;
     }
-    else
+    else // 측정값 저장
     {
       scan_data_[num] = msg->ranges.at(scan_angle[num]);
     }
@@ -95,6 +105,7 @@ void Turtlebot3Drive::updatecommandVelocity(double linear, double angular)
   cmd_vel.linear.x  = linear;
   cmd_vel.angular.z = angular;
 
+ // 업데이트
   cmd_vel_pub_.publish(cmd_vel);
 }
 
@@ -116,24 +127,28 @@ bool Turtlebot3Drive::controlLoop()
       }      
       cout << endl;
       
-      if (scan_data_[CENTER] > check_forward_dist_)
+	// 로봇이 가야하는 방향 정함
+	// 현재 각도 업데이트, 상태 업데이트
+      if (scan_data_[CENTER] > check_forward_dist_) // 정면에는 거리가 많이 남은 경우
       {
-        if (scan_data_[LEFT] < check_side_dist_)
-        {
+        if (scan_data_[LEFT] < check_side_dist_) // 왼쪽에 여유가 없는 경우 오른쪽으로 턴
+        {	  
           prev_tb3_pose_ = tb3_pose_;
           turtlebot3_state_num = TB3_RIGHT_TURN;
         }
-        else if (scan_data_[RIGHT] < check_side_dist_)
+        else if (scan_data_[RIGHT] < check_side_dist_) // 오른쪽에 여유가 없는 경우 왼쪽으로 턴
         {
           prev_tb3_pose_ = tb3_pose_;
           turtlebot3_state_num = TB3_LEFT_TURN;
         }
+	 // 그냥 정면 전진
         else
         {
           turtlebot3_state_num = TB3_DRIVE_FORWARD;
         }
       }
 
+	 // 정면 여유가 없는 경우 오른쪽으로 턴(계속 각도 오른쪽으로 돌려도 막힌 경우 계속 돌려서 뒤로 돌거임)
       if (scan_data_[CENTER] < check_forward_dist_)
       {
         prev_tb3_pose_ = tb3_pose_;
@@ -141,13 +156,14 @@ bool Turtlebot3Drive::controlLoop()
       }
       break;
 
+	 // 속도 업데이트
     case TB3_DRIVE_FORWARD:
       updatecommandVelocity(LINEAR_VELOCITY, 0.0);
       turtlebot3_state_num = GET_TB3_DIRECTION;
       break;
 
     case TB3_RIGHT_TURN:
-      if (fabs(prev_tb3_pose_ - tb3_pose_) >= escape_range_)
+      if (fabs(prev_tb3_pose_ - tb3_pose_) >= escape_range_) // fabs : 
         turtlebot3_state_num = GET_TB3_DIRECTION;
       else
         updatecommandVelocity(0.0, -1 * ANGULAR_VELOCITY);
