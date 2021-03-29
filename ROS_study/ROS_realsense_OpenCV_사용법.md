@@ -82,3 +82,5 @@ IDE : Qt creator
 
 ※ roscore, build(catkin_make) 잊지 말기
 </pre>
+
+참조:<https://www.youtube.com/watch?v=Xg472tPMs6U>
