@@ -6,13 +6,13 @@
 4. $ cd worlds
 
 5. gazebo 환경 모델 만들기
-6. 
-<p>
-  * $ gazebo 해서 gazebo 들어가기
+
+<pre>
+  a. $ gazebo 해서 gazebo 들어가기
   
-  * [Edit] - [Building Editor]
+  b. [Edit] - [Building Editor]
   
-  * 구조물 생성
+  c. 구조물 생성
 
 <img src="https://user-images.githubusercontent.com/80872528/112786367-0f858b80-9091-11eb-9211-6848a1304b25.png"  width="700" height="370">
 
@@ -21,7 +21,7 @@
      저장위치는 패키지 밑의 worlds, 이름은 sim_simple
   
   e. File - Exit building Editor
-</p>
+</pre>
 
 6. $ gazebo sim_simple.world
 
