@@ -51,8 +51,8 @@ IDE : Qt creator
     pub과 sub 노드 launch 모두 가능하도록 작성
     실행 : roslaunch 패키지 launch파일.launch
 </pre>
+<p align="center"><img src="https://user-images.githubusercontent.com/80872528/112790926-64c69a80-909b-11eb-824e-3c8c11c5a9f2.png"></p>
 
-![image](https://user-images.githubusercontent.com/80872528/112790926-64c69a80-909b-11eb-824e-3c8c11c5a9f2.png)
 
 
 ## ROS에서 Realsense camera 영상을 OpenCV 이용하여 egde detection 후 Rviz에 띄우기
