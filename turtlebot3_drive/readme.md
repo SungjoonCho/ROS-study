@@ -2,11 +2,13 @@ turtlebot3_drive 코드 공부
 
 * 실행 순서
 <pre>
-  1. $ cd ~/catkin_ws/src/
+  1. 소스 코드 다운 및 빌드
+     $ cd ~/catkin_ws/src/
      $ git clone -b kinetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
      $ cd ~/catkin_ws && catkin_make
      
-  2. $ export TURTLEBOT3_MODEL=burger
+  2. 환경 모델 world 불러오기
+     $ export TURTLEBOT3_MODEL=burger
      $ source ./devel/setup.bash 
      $ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
      
