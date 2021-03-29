@@ -5,6 +5,9 @@
    노드끼리 메시지 통신
 
 3. 메시지 : 메시지를 통해 노드 간의 데이터 주고 받음
+
    형식) integer, float, Boolean, 배열, 데이터 구조 등
 
    publisher (talker) -> subscriber(listener) 메시지 전송
+
+
