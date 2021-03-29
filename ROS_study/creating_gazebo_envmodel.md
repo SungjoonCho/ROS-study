@@ -1,7 +1,6 @@
 ### Gazebo 환경 모델 만드는 법
 
 
-<pre>
 1. $ mkdir 폴더명
 2. $ cd 폴더명
 3. $ mkdir worlds
@@ -28,4 +27,4 @@
 6. $ gazebo sim_simple.world
 
 7. vscode로 만들어진 world 모델 코드 확인 가능 
-</pre>
+
