@@ -13,7 +13,7 @@
   
   c. 구조물 생성
   
-  ![Screenshot from 2021-03-29 11-50-01](https://user-images.githubusercontent.com/80872528/112786367-0f858b80-9091-11eb-9211-6848a1304b25.png)
+  ![Screenshot from 2021-03-29 11-50-01](https://user-images.githubusercontent.com/80872528/112786367-0f858b80-9091-11eb-9211-6848a1304b25.png){: width="100" height="100"}
 
 
 
