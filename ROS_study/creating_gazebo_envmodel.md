@@ -12,7 +12,8 @@
   b. [Edit] - [Building Editor]
   
   c. 구조물 생성
-     <img src="https://user-images.githubusercontent.com/80872528/112786367-0f858b80-9091-11eb-9211-6848a1304b25.png" width="80">
+  
+     <img src="https://user-images.githubusercontent.com/80872528/112786367-0f858b80-9091-11eb-9211-6848a1304b25.png" width="300">
 
   
   
