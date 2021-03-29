@@ -10,7 +10,8 @@
   a. $ gazebo 해서 gazebo 들어가기
   b. [Edit] - [Building Editor]
   c. 구조물 생성
-  (https://user-images.githubusercontent.com/80872528/112781043-11e1e880-9085-11eb-8e67-0f32757a5d53.png)
+  file:///home/jskimlab/Pictures/Screenshot%20from%202021-03-29%2011-50-01.png![image](https://user-images.githubusercontent.com/80872528/112781101-28883f80-9085-11eb-9fba-ed8039d9daf5.png)
+
   
   
 
