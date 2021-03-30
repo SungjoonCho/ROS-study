@@ -1,6 +1,6 @@
 ## Gazebo Model urdf 개념
 
-"""
+<p>
     <link name="base_link">
         <visual>
             <geometry>
@@ -24,7 +24,7 @@
             <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
         </inertial>
     </link>
-"""
+</p>
 
 visaul : 외형 제작, 3D 도면 파일 연결 가능
 collision : 충돌 방지나 시뮬레이션에서 충돌 요소에 대한 시뮬레이션
