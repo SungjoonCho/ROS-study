@@ -7,20 +7,29 @@
 4. src 내에 launch, urdf 폴더 생성
 5. src 나와서 catkin_make
 
+---
 
 >개념
+
 Link : 로봇을 구성하는 하나의 요소
+
 Joint : 링크와 링크를 연결하는 요소
 
+---
+
 visaul : 시각화 속성 & 외형 제작, 3D 도면 파일 연결 가능
+
 collision : 충돌 방지나 시뮬레이션에서 충돌 요소에 대한 시뮬레이션
+
 inertial : 링크에 대한 관성 정보
 
 
 >Joint 타입
 
 origin : 부모 링크에서 자식 링크에 관한 변환 정보
+
 parent : 부모 링크 이름
+
 child : 자식 링크 이름
 
 
