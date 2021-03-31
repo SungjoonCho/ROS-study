@@ -1,5 +1,14 @@
 ## Gazebo Model urdf 개념
 
+>패키지 생성
+1. 폴더 생성
+2. src 생성 후 들어가기
+3. $ catkin_create_pkg ex_urdf roscpp tf geometry_msgs urdf rviz xacro
+4. src 내에 launch, urdf 폴더 생성
+5. src 나와서 catkin_make
+
+
+>개념
 Link : 로봇을 구성하는 하나의 요소
 Joint : 링크와 링크를 연결하는 요소
 
@@ -8,18 +17,13 @@ collision : 충돌 방지나 시뮬레이션에서 충돌 요소에 대한 시�
 inertial : 링크에 대한 관성 정보
 
 
-<Joint 타입>
+>Joint 타입
 
 origin : 부모 링크에서 자식 링크에 관한 변환 정보
 parent : 부모 링크 이름
 child : 자식 링크 이름
 
-<패키지 생성>
-1. 폴더 생성
-2. src 생성 후 들어가기
-3. $ catkin_create_pkg ex_urdf roscpp tf geometry_msgs urdf rviz xacro
-4. src 내에 launch, urdf 폴더 생성
-5. src 나와서 catkin_make
+
 
 
 <p>
