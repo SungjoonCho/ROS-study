@@ -24,7 +24,7 @@
 * parent : 부모 링크 이름
 * child : 자식 링크 이름
 
-
+>예시 urdf 코드
 <p>
 <?xml version="1.0"?>
 <robot name="ex_urdf_pan_tilt">
@@ -124,11 +124,9 @@
 
 
 
-<해결>
+>error 해결 방안
 
-check_urdf pan_tilt.urdf 하기 위해서는 sudo apt install liburdfdom-tools 필요
-
-rviz에서 [Fixed Frame]은 base_link로 설정
-
-gazebo 하다가 process die 에러 날 경우 - $killall gzserver $killall gzclient 
+* check_urdf pan_tilt.urdf 하기 위해서는 sudo apt install liburdfdom-tools 필요
+* rviz에서 [Fixed Frame]은 base_link로 설정
+* gazebo 하다가 process die 에러 날 경우 - $killall gzserver $killall gzclient 
  
