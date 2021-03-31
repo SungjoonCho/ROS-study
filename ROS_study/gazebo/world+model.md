@@ -9,11 +9,16 @@ gazebo 폴더 내부 파일은 모델에 대한 정보, catkin_ws 내의 파일�
 ## model 만들기
 /usr/share/gazebo-9/models 폴더 아래에 model.sdf(.urdf로 해도 됨), model.config 만들기 
 
+config 파일 : gazebo랑 sdf 연결
 
 ## world 파일 만들기
 world 폴더 아래에 world이름.world 만들기
 
-world에 model include 시키기 
+world에 model 올려놓으려면 model 정보 include 시키기 
+
+단, 내가 만든 model은 /usr/share/gazebo-9/models 폴더 아래에 있어야 함
+
+
 <p>    <include>
         <uri>model://모델명</uri>
     </include>
