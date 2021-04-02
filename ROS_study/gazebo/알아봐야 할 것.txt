@@ -1,0 +1,67 @@
+Roslaunch
+
+<launch> 태그 안에는 roslaunch 명령어로 노드를 실행할 때 필요한 태그들을 적으면 된다.
+- 태그
+pkg : 패키지 이름
+type : 실제 실행할 노드 이름
+name : type에 해당하는 노드가 실행될 때 붙여지는 이름
+
+<node> : 노드 실행에 대한 태그
+<machine> : 노드를 실행하는 pc의 이름
+<include> : 다른 launch 파일을 불러와 현재 launch 파일과 함께 실행
+<param> : 파라미터 이름, type, 값 설정
+<arg> : launch 파일 내에 변수 정의 가능
+
+
+다 써놓고 합치던가 분리하던가 하기
+
+turtlebot 다시 뜯어보기
+새로 만드는것 해보기...블로그 하나 보고
+
+<하나하나 개념>
+
+xacro = xml + macro
+robot description 같은 긴 xml 파일을 짧게 만들어주는데 적합 (urdf 파일을 간결하게)
+
+yaml
+
+plugin cc
+
+sdf와 urdf 차이 dae
+
+config launch cc model(urdf,sdf) world 한번에 어떻게 돌아가는 관계인지
+
+
+
+
+
+
+
+
+<전체 실행법>
+
+- turtlehouse3_house.launch 먼저 실행
+
+$(find gazebo_ros)/launch/empty_world.launch
+위 경로의 empty_world 파일은 /opt/ros/melodic/share/gazebo_ros/launch에 있다.
+
+<arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world"/>
+위 경로에서 turtlebot3_house.world를 환경모델로 열어라
+
+<param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+xacro 파일은 /opt/ros/melodic/share/turtlebot3_description/urdf 경로에서 터틀봇 모델 불러오기
+
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"...
+/opt/ros/melodic/lib/gazebo_ros 경로의 gazebo_ros 패키지에서 spawn_model 노드 찾아 실행해라 
+
+
+- roslaunch turtlebot3_gazebo turtlebot3_simulation.launch 실행
+
+<node name="$(arg name)_drive" pkg="turtlebot3_gazebo" type="turtlebot3_drive" required="true" output="screen"/>
+turtlebot3_drive.cpp 파일 찾아서 실행
+
+
+===> 결론 : 필요한 파일들은 launch 파일, world 파일, model 파일, node 파일
+model 파일의 경우 xacro로 만듦
+
+
