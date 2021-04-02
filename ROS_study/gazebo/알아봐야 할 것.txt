@@ -65,3 +65,25 @@ turtlebot3_drive.cpp 파일 찾아서 실행
 model 파일의 경우 xacro로 만듦
 
 
+
+<model 만들기>
+
+- 몸체
+visual - geometry에서 x, y, z 값 수정. ex) (5, 1, 1) 정도로 함
+collision도 동일하게 수정해야 한다. visual은 그래픽 외형적인 모습을 바꿔주는 것뿐이고 collision이 실제 물리적인 외형을 담당하고 있다.
+
+
+
+- 바퀴
+pose 에서 roll 1.5707로 하면 90도 누움
+visual - geometry에서 radius와 length 수정 ex) (0.5, 0.25) 정도로 함
+collision도 동일하게 수정해야 한다. 
+
+
+-joint
+몸체랑 바퀴를 이어야 한다.
+
+
+
+
+
