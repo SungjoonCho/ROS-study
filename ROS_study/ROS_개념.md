@@ -11,3 +11,24 @@
    publisher (talker) -> subscriber(listener) 메시지 전송
 
 
+4. yaml, rosparam
+
+   yaml 파일은 Ros parameter server에서 쓰이는 node 구성 파라미터를 불러온다.
+
+   > rosparam load my_cfg.yaml
+
+   rosparam load [파일 이름]은 파일에 저장된 파라미터를 불러온다.
+
+   > < rosparam command="load" file="$(find my_pkg)/my_cfg.yaml" / >
+
+   위와 같이 launch file 내에서도 쓸 수 있다. yaml 파일을 불러온 다음에는 
+   
+   <pre>
+   ros::NodeHandle nh;
+   double rate;
+   nh.getParam("node_rate" , rate);
+   </pre>
+   
+   노드에서는 위와 같이 특정 파라미터 이름을 언급하여 매칭된 파라미터 값을 읽어와 변수에 저장할 수 있다. 여기서는 rate에 저장했다.
+   
+
