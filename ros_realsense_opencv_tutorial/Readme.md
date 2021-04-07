@@ -13,6 +13,8 @@
         -> assertion failed error : 읽으려는 영상의 위치가 정확하지 않아서 발생
 
   3-2. 해결 : realsense sdk 영상을 cv::Mat으로 읽어와 while문으로 프레임 보여주기
+  
+  <p align="center"><img src="https://user-images.githubusercontent.com/80872528/112790926-64c69a80-909b-11eb-824e-3c8c11c5a9f2.png" width = "500"></p>
 
   </pre>
 
