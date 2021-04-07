@@ -1,4 +1,4 @@
-## Gazebo Model urdf 정리
+## Gazebo Model sdf,urdf 태그 정리
 
 * Link : 로봇을 구성하는 하나의 요소
 * Joint : 링크와 링크를 연결하는 요소
