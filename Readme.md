@@ -1,6 +1,6 @@
 ## ROS 개념 정리
 
-* 전체구조
+* 전체구조 정리 및 Setting
 
 <img src="https://user-images.githubusercontent.com/80872528/112789901-1d3f0f00-9099-11eb-83a6-74ba4ebd43e7.png" width="500"> </img>
 
