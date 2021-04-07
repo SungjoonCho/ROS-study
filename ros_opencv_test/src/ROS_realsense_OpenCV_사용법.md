@@ -1,3 +1,5 @@
+## ROS에서 Realsense camera 영상을 OpenCV 이용하여 publish 후 subscriber가 edge detection 후 영상 출력
+
 ## Setting
 
 <pre>
@@ -5,45 +7,30 @@ OS : Ubuntu 18.04
 ROS Version : melodic
 Realsense SDK 2.0 Version : 2.42.0 
 Realsense Camera D435i 사용 
-IDE : Qt creator 
 </pre>
 
-## 개요
-<pre>
-1. 시작하기 전 준비 사항
-    melodic 설치 완료, SDK 2.0 설치 완료
 
-2. D435i camera를 컴퓨터에 usb cable로 연결
-
-3-1. 문제 발생 : 일반적인 노트북 캠 + OpenCV 사용 코드로 실행 불가
-      -> VideoCapture(0)의 숫자를 외장 캠이라고 1로 수정해도 실행 X
-      -> assertion failed error : 읽으려는 영상의 위치가 정확하지 않아서 발생
-
-3-2. 해결 : realsense sdk 영상을 cv::Mat으로 읽어와 while문으로 프레임 보여줌   
-
-</pre>
-
-## ROS에서 Realsense camera 영상을 OpenCV 이용하여 publis & subscriber가 edge detection 후 영상 출력
+## 순서
 
 <pre>
-1. 동일 프로젝트 내에 pub용 패키지, 노드(cpp) 작성 (publish용 노드 1개)
+1. catkin package 모두 작성 후 한 workspace 내에 pub용 패키지, 노드(cpp) 작성 (publish용 노드 1개)
 
 2. 노드 코드
     Realsense 카메라로 컬러 영상 프레임 획득
     각 프레임의 matrix data 얻어서 “color” mat로 생성
     cv_bridge를 이용하여 각 프레임 mat를 sensor_msgs로 변환
-    변환된 결과인 sensor_msgs를 topic으로 publish
+    변환된 결과인 sensor_msgs를 "camera/image" topic으로 publish
 
-3. 동일 프로젝트 내에 pub용 패키지, 노드(cpp) 작성 
+3. 동일 프로젝트 내에 sub용 패키지, 노드(cpp) 작성 
     (subscribe용 노드 1개)
 
-4. 같은 topic 경로로 subscribe
+4. 같은 "camera/image" topic 경로로 subscribe
 
 5. 받은 msg를 mono8(grayscale)로 변환
 
 6. Canny edge detector로 에지 추출 후 cv::imshow
 
-※ roscore, build(catkin_make) 잊지 말기
+※ roscore, build(catkin_make), source ./devel/setup.bash 잊지 말기
 
 7-1. 노드 1개씩 실행시에는 rosrun 패키지 노드
  
@@ -80,7 +67,5 @@ IDE : Qt creator
 
 5. 왼쪽 메뉴바 [Image] – [Image Topic] – [topic 경로] enter
 
-※ roscore, build(catkin_make) 잊지 말기
+※ roscore, build(catkin_make), source ./devel/setup.bash 잊지 말기
 </pre>
-
-참조:<https://www.youtube.com/watch?v=Xg472tPMs6U>
