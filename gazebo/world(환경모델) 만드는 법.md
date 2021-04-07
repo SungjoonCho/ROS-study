@@ -1,4 +1,4 @@
-### Gazebo 환경 모델 만드는 법
+### Gazebo World 만드는 법
 
 
 1. $ mkdir 폴더명
