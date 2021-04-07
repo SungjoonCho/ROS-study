@@ -1,5 +1,19 @@
 ## Gazebo Model sdf,urdf 태그 정리
 
+* sdf와 urdf 차이
+ 
+urdf(Unified Robot Description Format) : ROS에서 사용되는 로봇 기술(Description) 형식 
+
+* URDF(Unified Robot Description Format) vs SDF(Simulation Description Format)
+
+    URDF는 하나의 robot 모델에 대해 기술하는 양식. 시뮬레이션 world 상에서 robot의 pose를 결정할 수 없다.
+
+    SDF는 world 상에서 여러개의 robot 모델에 대해 pose를 정의할 수 있으며 모델←→센서←→ World 의 관계에 대한 속성 정의도 가능하다.
+
+    쉽게 말해 서빙 로봇 서비스가 있는 매장에서 URDF는 서빙 로봇 하나의 도면, SDF는 매장 전체 시스템의 도면
+
+---
+
 * Link : 로봇을 구성하는 하나의 요소
 * Joint : 링크와 링크를 연결하는 요소
 
@@ -55,6 +69,15 @@
     
 </robot>
 </p>
+
+---
+
+xacro = xml + macro
+
+robot description 같은 긴 xml 파일을 짧게 만들어주는데 적합 
+
+
+---
 
 
 
