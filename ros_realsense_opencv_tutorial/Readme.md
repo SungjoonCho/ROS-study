@@ -47,7 +47,7 @@
 
    4. Build - $catkin_make
 
-   5. 실행 - $rosrun ros_realsense_opencv_tutorial ros_realsense_opencv_tutorial\
+   5. 실행 - $rosrun ros_realsense_opencv_tutorial ros_realsense_opencv_tutorial
   </pre>
 
   참고 : https://www.youtube.com/watch?v=Xg472tPMs6U
