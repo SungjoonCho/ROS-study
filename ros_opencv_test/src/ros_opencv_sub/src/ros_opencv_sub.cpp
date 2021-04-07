@@ -14,29 +14,12 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   {
 
     // edge detector
-    // cv::Mat dst_127, image;
+    cv::Mat dst_127, image;
 
-    // cv::Canny(cv_bridge::toCvShare(msg, "mono8")->image , dst_127, 100, 127, 3, false);
-
-    // cout << "running image Callback" << endl;
-    // cv::imshow("sub", dst_127);
-
-    //original image
-    cv_bridge::CvImagePtr cv_ptr;
-    try
-    {
-      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-    }
-    catch (cv_bridge::Exception& e)
-    {
-      ROS_ERROR("cv_bridge exception: %s", e.what());
-      return;
-    }
+    cv::Canny(cv_bridge::toCvShare(msg, "mono8")->image , dst_127, 100, 127, 3, false);
 
     cout << "running image Callback" << endl;
-    cv::imshow("sub", cv_ptr->image);
-
-
+    cv::imshow("sub", dst_127);
 
 
     // print original image
@@ -60,7 +43,7 @@ int main(int argc, char **argv)
   cv::namedWindow("sub");
 
   image_transport::ImageTransport it(nh);
-  image_transport::Subscriber sub = it.subscribe("camera/color/image_raw", 1, imageCallback);
+  image_transport::Subscriber sub = it.subscribe("camera/image", 1, imageCallback);
   ros::spin();
   cv::destroyWindow("sub");
 }
