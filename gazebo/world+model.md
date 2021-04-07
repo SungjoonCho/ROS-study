@@ -32,7 +32,8 @@ world에 model 올려놓으려면 model 정보 include 시키기
 -> CMakeLists.txt : .cc 파일을 컴파일 하기위한 정보
 
 -> launch
-<pre>
+
+```html
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
 아무것도 존재하지 않는 빈 공간의 Gazebo가 실행된다.
   
@@ -41,7 +42,8 @@ gazebo 실행 시 정지 상태로 시작
 
 <arg name="world_name" value="$(find ex_urdf)/worlds/house.world"/>
 world 파일을 gazebo에 띄우겠다는 뜻
-</pre>
+```
+
 
 
 출처 : <https://ola-page.tistory.com/2?category=941378>
