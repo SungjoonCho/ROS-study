@@ -5,7 +5,7 @@
 <img src="https://user-images.githubusercontent.com/80872528/112789901-1d3f0f00-9099-11eb-83a6-74ba4ebd43e7.png" width="500"> </img>
 
 <pre>
-1.작업 공간 만들기 - $mkdir workspace_name
+1.작업 공간(프로젝트명) 만들기 - $mkdir workspace_name
 
 2.작업 공간으로 이동 – $cd 폴더명
 
