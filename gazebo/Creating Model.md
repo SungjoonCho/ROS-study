@@ -30,9 +30,14 @@
 -저장
   File - Save as : 저장
   File - Exit model editor : 에디터 나옴
-
-
--다 저장 후 모델 수정 원하면
- 모델 오른쪽 클릭 후 edit model
  
 </pre>
+
+- 다 저장 후 모델 수정 원하면
+
+ 모델 오른쪽 클릭 후 edit model
+
+- Gazebo 새로 켜서 만든 모델 불러오고 싶으면
+
+  Insert - 불러오고 싶은 모델 파일 찾아서 더블 클릭
+
