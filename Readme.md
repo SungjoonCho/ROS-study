@@ -6,6 +6,8 @@ OS : Ubuntu 18.04
 
 ROS Version : melodic
 
+ros tutorial : http://wiki.ros.org/ko/ROS/Tutorials
+
 ### * 전체구조 정리 및 Setting
 
 <img src="https://user-images.githubusercontent.com/80872528/112789901-1d3f0f00-9099-11eb-83a6-74ba4ebd43e7.png" width="500"> </img>
