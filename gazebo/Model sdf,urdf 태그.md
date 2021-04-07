@@ -2,7 +2,7 @@
 
 * sdf와 urdf 차이
  
-urdf(Unified Robot Description Format) : ROS에서 사용되는 로봇 기술(Description) 형식 
+  urdf(Unified Robot Description Format) : ROS에서 사용되는 로봇 기술(Description) 형식 
 
 * URDF(Unified Robot Description Format) vs SDF(Simulation Description Format)
 
