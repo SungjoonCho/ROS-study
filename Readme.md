@@ -1,6 +1,6 @@
 # ROS 개념 정리
 
-### * develop environment
+### * Develop environment
 
 OS : Ubuntu 18.04
 
