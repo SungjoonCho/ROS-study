@@ -65,13 +65,19 @@
 
 7. model 카메라 앞에 촬영할 도형 및 구조물 하나 두고 gazebo 하단의 재생 버튼 눌려있는지 확인
 
+<p align="center">
+  <img width="600" height="300" src="https://user-images.githubusercontent.com/80872528/113850875-df976000-97d5-11eb-9750-3fd0150a9954.png">
+</p>
+
 8. 새 터미널 창 - $rosrun rviz rviz
 
 9. Fixed Frame은 camera_link로 바꿔주고 Add - Image, PointCloud2
 
-10. ImageTopic 드롭박스 클릭시 /camera/color/image_raw
+10. ImageTopic 드롭박스 클릭시 /camera/color/image_raw 선택
 
-11. PointCloud2의 Topic 드롭박스 클릭시 /camera/depth/points
+<p align="center">
+  <img width="400" src="https://user-images.githubusercontent.com/80872528/113852174-3baeb400-97d7-11eb-82d5-13cc082cc1ff.png">
+</p>
 
 <pre>
   rviz가 topic을 subscribe하여 화면에 영상 출력
@@ -80,7 +86,11 @@
   
   rostopic list로 현재 오가는 topic 확인 가능
 </pre>
- 
+
+<p align="center">
+  <img width="700" src="https://user-images.githubusercontent.com/80872528/113852450-8a5c4e00-97d7-11eb-9bd6-0c522b25567b.png">
+</p>
+
 
 ### * 촬영한 image를 다른 노드에서 subscribe하기
 
@@ -93,3 +103,5 @@
   $cd ros_opencv_sub
   
   $catkin_make
+
+
