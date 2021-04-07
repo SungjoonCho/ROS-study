@@ -28,7 +28,7 @@ ROS Version : melodic
 7.build – $catkin_make
 </pre>
 
-* 전체 노드 코드 및 CMakeLists 작성 후 실행
+### * 전체 노드 코드 및 CMakeLists 작성 후 실행
 <pre>
 
 1.새 터미널에서 workspace 들어온 후 roscore
