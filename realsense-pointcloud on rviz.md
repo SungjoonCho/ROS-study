@@ -1,7 +1,9 @@
 ## Realsense에서 촬영한 pointcloud 영상을 rviz에 띄우기
 
 ### terminal 1
+<pre>
 $ roscore
+</pre>
 
 ### terminal 2
 <pre>
@@ -20,9 +22,7 @@ $ roslaunch realsense2_camera rs_camera.launch filters:=pointcloud
 <pre>
 $ rosrun rviz rviz
 
-Fixed Frame - camera_color_frame
-
-[Add] - PoinCloud2
-
-topic - /camera/depth/color/points
+Fixed Frame - camera_color_frame 써주기
+[Add] - PoinCloud2 항목 선택
+topic - /camera/depth/color/points 선택
 </pre>
