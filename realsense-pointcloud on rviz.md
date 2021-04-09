@@ -4,6 +4,7 @@
 $ roscore
 
 ### terminal 2
+<pre>
 $ mkdir -p ~/catkin_ws_d435i/src
 $ cd ~/catkin_ws_d435i/src/
 $git clone https://github.com/IntelRealSense/realsense-ros.git
@@ -13,8 +14,10 @@ $catkin_make
 $source ./devel/setup.bash
 
 $ roslaunch realsense2_camera rs_camera.launch filters:=pointcloud
+</pre>
 
 ### terminal 3
+<pre>
 $ rosrun rviz rviz
 
 Fixed Frame - camera_color_frame
@@ -22,3 +25,4 @@ Fixed Frame - camera_color_frame
 [Add] - PoinCloud2
 
 topic - /camera/depth/color/points
+</pre>
